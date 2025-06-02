@@ -13,6 +13,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 add_library(BusinessLogic SHARED
   BusinessLogic_global.h
+  course.h course.cpp
+  exceptions.h exceptions.cpp
 
 
 )

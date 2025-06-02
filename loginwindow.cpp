@@ -31,7 +31,8 @@ void LoginWindow::on_loginButton_clicked()
         }
 
         else if(username == "student" && password == "student"){
-            StudentWindow *studentWindow = new StudentWindow(cm); //
+            Student* studentUser = new Student(username, password);
+            StudentWindow *studentWindow = new StudentWindow(cm, studentUser); //
             studentWindow->show();
             this->close();
         }

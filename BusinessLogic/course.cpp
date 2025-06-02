@@ -1,20 +1,25 @@
-#ifndef COURSE_H
-#define COURSE_H
-#include <QString>
-#include "BusinessLogic_global.h"
-using namespace std;
-class BUSINESSLOGIC_EXPORT Course
+#include "course.h"
+#include "exceptions.h"
+
+Course::Course(int id, const QString &name, const QString &description)
+    : id(id), name(name), description(description)
 {
-private:
-    QString name;
-    QString description;
-    int id;
-public:
-    Course(int id, const QString &name, const QString &description);
+    if (name.isEmpty() || description.isEmpty()) {
+        throw CourseEmptyException("Nazwa i opis nie mogą być puste");
+    }
+}
 
-    int getId() const;
-    QString getName() const;
-    QString getDescription() const;
-};
+int Course::getId() const
+{
+    return id;
+}
 
-#endif // COURSE_H
+QString Course::getName() const
+{
+    return name;
+}
+
+QString Course::getDescription() const
+{
+    return description;
+}

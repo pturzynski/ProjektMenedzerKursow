@@ -11,6 +11,8 @@ qt_add_executable(ProjektMenedzerKursow
     loginwindow.cpp
     loginwindow.h
     loginwindow.ui
+    adminwindow.h adminwindow.cpp adminwindow.ui
+    studentwindow.h studentwindow.cpp studentwindow.ui
 )
 
 target_link_libraries(ProjektMenedzerKursow

@@ -1,33 +1,16 @@
-#ifndef EXCEPTIONS_H
-#define EXCEPTIONS_H
-#include "BusinessLogic_global.h"
-#include <stdexcept>
-#include <string>
-using namespace std;
+#include "exceptions.h"
 
-class BUSINESSLOGIC_EXPORT FileOpenException : public runtime_error {
-public:
-    explicit FileOpenException(const string& exc);
-};
+FileOpenException::FileOpenException(const string& exc)
+    : runtime_error("Nie można otworzyć pliku: " + exc) {}
 
-class BUSINESSLOGIC_EXPORT FileReadException : public runtime_error {
-public:
-    explicit FileReadException(const string& exc);
-};
+FileReadException::FileReadException(const string& exc)
+    : runtime_error("Błąd podczas wczytywania pliku: " + exc) {}
 
-class BUSINESSLOGIC_EXPORT FileWriteException : public runtime_error {
-public:
-    explicit FileWriteException(const string& exc);
-};
+FileWriteException::FileWriteException(const string& exc)
+    : runtime_error("Błąd podczas zapisu pliku: " + exc) {}
 
-class BUSINESSLOGIC_EXPORT LoginFailedException : public runtime_error {
-public:
-    explicit LoginFailedException(const string& exc);
-};
+LoginFailedException::LoginFailedException(const string &exc)
+    : runtime_error("Błąd logowania: " + exc) {}
 
-class BUSINESSLOGIC_EXPORT CourseEmptyException : public runtime_error {
-public:
-    explicit CourseEmptyException(const string& exc);
-};
-
-#endif // EXCEPTIONS_H
+CourseEmptyException::CourseEmptyException(const string &exc)
+    : runtime_error("Pusty kurs: "+ exc) {}

@@ -3,21 +3,29 @@
 
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
+#include "BusinessLogic/user.h"
+#include "BusinessLogic/admin.h"
+#include "BusinessLogic/student.h"
+#include "BusinessLogic/coursemanager.h"
+
 namespace Ui {
 class LoginWindow;
 }
-QT_END_NAMESPACE
 
 class LoginWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    LoginWindow(QWidget *parent = nullptr);
+    explicit LoginWindow(CourseManager *cm, QWidget *parent = nullptr);
     ~LoginWindow();
 
+private slots:
+    void on_loginButton_clicked();
+
 private:
+    CourseManager* cm;
     Ui::LoginWindow *ui;
 };
+
 #endif // LOGINWINDOW_H
